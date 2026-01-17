@@ -1,0 +1,25 @@
+run:
+  timeout: 5m
+  skip-dirs:
+    - graph/model
+  skip-files:
+    - ".*_gen\\.go$"
+    - "generated\\.go$"
+
+linters:
+  enable:
+    - errcheck
+    - staticcheck
+    - unused
+    - govet
+
+issues:
+  exclude-rules:
+    # Ignore generated files
+    - path: graph/generated\.go
+      linters:
+        - unused
+        - errcheck
+    - path: graph/model/models_gen\.go
+      linters:
+        - unused

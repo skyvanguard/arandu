@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/skyvanguard/arandu#readme
+    about: Check the README for setup and configuration help
+  - name: Discussions
+    url: https://github.com/skyvanguard/arandu/discussions
+    about: Ask questions and discuss ideas
