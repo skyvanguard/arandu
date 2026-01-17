@@ -15,6 +15,8 @@
 ## 📋 Tabla de Contenidos
 
 - [Características](#-características)
+- [¿Por qué Arandu?](#-por-qué-arandu)
+- [Ejemplos de Uso](#-ejemplos-de-uso)
 - [Arquitectura](#-arquitectura)
 - [Inicio Rápido](#-inicio-rápido)
 - [Configuración](#-configuración)
@@ -36,6 +38,111 @@
 | 📦 **Auto-selección** | Elige la imagen Docker óptima según la tarea |
 | 🏠 **LLMs locales** | Soporte para Ollama, LM Studio, LocalAI y más |
 | 💅 **UI moderna** | Interfaz limpia y responsive |
+
+---
+
+## 🤔 ¿Por qué Arandu?
+
+### El Problema
+
+Los agentes de IA actuales tienen limitaciones importantes:
+
+- **Dependencia de APIs caras** → Sin OpenAI no funcionan
+- **Sin aislamiento real** → Ejecutan comandos directamente en tu sistema
+- **Interfaces limitadas** → Solo terminal, sin visualización
+- **Difíciles de extender** → Código cerrado o arquitecturas complejas
+
+### La Solución
+
+Arandu está diseñado para ser el agente de IA que realmente puedes usar en producción:
+
+| Problema | Otras herramientas | Arandu |
+|----------|-------------------|--------|
+| **Costo** | Solo APIs de pago | LLMs locales gratuitos (Ollama, LM Studio) |
+| **Seguridad** | Ejecución directa en host | Todo en containers Docker aislados |
+| **Visibilidad** | Terminal básica | UI web con editor, terminal y navegador |
+| **Navegación** | Limitada o inexistente | Navegador headless integrado |
+| **Autonomía** | Requiere confirmación constante | Detecta y ejecuta pasos automáticamente |
+| **Persistencia** | Sin historial | SQLite con logs y sesiones guardadas |
+
+### Comparación con Alternativas
+
+| Característica | Arandu | Open Interpreter | Aider | AutoGPT |
+|---------------|--------|------------------|-------|---------|
+| LLMs locales (Ollama) | ✅ | ✅ | ✅ | ❌ |
+| Sandbox Docker | ✅ | ❌ | ❌ | Parcial |
+| UI Web | ✅ | ❌ | ❌ | ✅ |
+| Navegador integrado | ✅ | ❌ | ❌ | ✅ |
+| Editor visual | ✅ | ❌ | ❌ | ❌ |
+| Terminal integrada | ✅ | ✅ | ✅ | ❌ |
+| 100% Open Source | ✅ | ✅ | ✅ | ✅ |
+| Self-hosted | ✅ | ✅ | ✅ | ✅ |
+
+> **Arandu** significa "sabiduría" en Guaraní. Representa la filosofía del proyecto: un agente que actúa con inteligencia y prudencia, ejecutando tareas de forma segura y autónoma.
+
+---
+
+## 💡 Ejemplos de Uso
+
+### Desarrollo de Software
+
+```
+> Crea una API REST en Go con endpoints CRUD para gestionar usuarios.
+  Usa Gin, GORM con PostgreSQL, y agrega autenticación JWT.
+```
+
+Arandu automáticamente:
+1. Selecciona una imagen Docker con Go
+2. Crea la estructura del proyecto
+3. Implementa los endpoints
+4. Configura la base de datos
+5. Agrega middleware de autenticación
+
+### Web Scraping
+
+```
+> Extrae los títulos y precios de los primeros 20 productos de
+  https://example-store.com/laptops y guárdalos en un CSV.
+```
+
+Arandu:
+1. Abre el navegador headless
+2. Navega a la página
+3. Extrae los datos con selectores CSS
+4. Genera el archivo CSV
+
+### Análisis de Datos
+
+```
+> Descarga el dataset de Kaggle sobre ventas de videojuegos,
+  analiza las tendencias por región y genera gráficos en Python.
+```
+
+### DevOps y Automatización
+
+```
+> Crea un Dockerfile optimizado para una aplicación Next.js,
+  con multi-stage build y configuración de nginx.
+```
+
+### Investigación
+
+```
+> Busca los últimos 5 papers sobre transformers en arXiv,
+  resume cada uno y crea una tabla comparativa en Markdown.
+```
+
+### Casos de Uso Avanzados
+
+| Tarea | Herramientas que usa |
+|-------|---------------------|
+| Crear proyecto full-stack | Terminal + Editor |
+| Debuggear código existente | Editor + Terminal |
+| Investigar competencia | Navegador |
+| Automatizar tareas repetitivas | Terminal |
+| Generar documentación | Editor |
+| Hacer deploy | Terminal + Docker |
+| Scrapear datos | Navegador + Terminal |
 
 ---
 
