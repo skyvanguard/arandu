@@ -8,10 +8,85 @@ run:
 
 linters:
   enable:
+    # Default linters
     - errcheck
+    - gosimple
+    - govet
+    - ineffassign
     - staticcheck
     - unused
-    - govet
+    # Additional linters
+    - bodyclose
+    - dogsled
+    - dupl
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - funlen
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - gocyclo
+    - gofmt
+    - goimports
+    - goprintffuncname
+    - gosec
+    - misspell
+    - nakedret
+    - noctx
+    - nolintlint
+    - prealloc
+    - revive
+    - unconvert
+    - unparam
+    - whitespace
+
+linters-settings:
+  errcheck:
+    check-type-assertions: true
+    check-blank: true
+
+  govet:
+    check-shadowing: true
+
+  gocyclo:
+    min-complexity: 15
+
+  funlen:
+    lines: 100
+    statements: 50
+
+  goconst:
+    min-len: 3
+    min-occurrences: 3
+
+  misspell:
+    locale: US
+
+  gosec:
+    excludes:
+      - G104 # Audit errors not checked (we handle this with errcheck)
+
+  revive:
+    rules:
+      - name: blank-imports
+      - name: context-as-argument
+      - name: context-keys-type
+      - name: dot-imports
+      - name: error-return
+      - name: error-strings
+      - name: error-naming
+      - name: exported
+      - name: if-return
+      - name: increment-decrement
+      - name: var-naming
+      - name: var-declaration
+      - name: range
+      - name: receiver-naming
+      - name: time-naming
+      - name: unexported-return
+      - name: indent-error-flow
+      - name: errorf
 
 issues:
   exclude-rules:
@@ -20,6 +95,24 @@ issues:
       linters:
         - unused
         - errcheck
+        - funlen
+        - gocyclo
+        - dupl
     - path: graph/model/models_gen\.go
       linters:
         - unused
+    - path: database/.*\.sql\.go
+      linters:
+        - dupl
+    # Test files can have longer functions
+    - path: _test\.go
+      linters:
+        - funlen
+        - dupl
+    # Allow init functions in main
+    - path: main\.go
+      linters:
+        - gochecknoinits
+
+  max-issues-per-linter: 50
+  max-same-issues: 10

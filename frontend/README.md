@@ -1,30 +1,152 @@
-# React + TypeScript + Vite
+# Arandu Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React-based web interface for the Arandu AI coding assistant.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **urql** - GraphQL client with normalized caching
+- **vanilla-extract** - CSS-in-TypeScript styling
+- **xterm.js** - Terminal emulation
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```
+src/
+├── components/         # Reusable UI components
+│   ├── Browser/       # Web browser preview
+│   ├── Button/        # Button component
+│   ├── Dropdown/      # Dropdown menu
+│   ├── Icon/          # SVG icons
+│   ├── Messages/      # Chat message display
+│   ├── Panel/         # Panel container
+│   ├── Sidebar/       # Navigation sidebar
+│   ├── Tabs/          # Tab navigation
+│   ├── Terminal/      # Terminal emulator
+│   └── Tooltip/       # Tooltip component
+├── hooks/             # Custom React hooks
+├── layouts/           # Page layouts
+├── pages/             # Page components
+│   └── ChatPage/      # Main chat interface
+├── styles/            # Global styles and theme
+├── App.tsx            # Root component
+├── graphql.ts         # GraphQL client setup
+└── main.tsx           # Entry point
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: ["./tsconfig.json", "./tsconfig.node.json"],
-    tsconfigRootDir: __dirname,
-  },
-};
+generated/             # Auto-generated GraphQL types
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Development
+
+### Prerequisites
+
+- Node.js 22+
+- Yarn
+
+### Setup
+
+```bash
+# Install dependencies
+yarn install
+
+# Copy environment file
+cp .env.example .env.local
+
+# Edit .env.local with your backend URL
+# VITE_API_URL=localhost:8080
+```
+
+### Commands
+
+```bash
+# Start development server
+yarn dev
+
+# Build for production
+yarn build
+
+# Preview production build
+yarn preview
+
+# Run linter
+yarn lint
+
+# Format code
+yarn format:fix
+
+# Generate GraphQL types
+yarn codegen
+
+# Run tests
+yarn test
+
+# Run tests with coverage
+yarn test:coverage
+```
+
+## GraphQL
+
+The frontend uses urql for GraphQL operations with:
+
+- **graphcache** - Normalized caching with automatic updates
+- **WebSocket subscriptions** - Real-time updates for tasks and terminal
+
+### Generating Types
+
+GraphQL types are generated from the backend schema:
+
+```bash
+yarn codegen
+```
+
+This reads `../backend/graph/schema.graphqls` and generates:
+- `generated/graphql.ts` - TypeScript types and urql hooks
+- `generated/graphql.schema.json` - Schema introspection
+
+### Available Operations
+
+**Queries:**
+- `availableModels` - List configured LLM models
+- `flows` - List all conversation flows
+- `flow(id)` - Get single flow with tasks
+
+**Mutations:**
+- `createFlow` - Start new conversation
+- `createTask` - Send user message
+- `finishFlow` - End conversation
+
+**Subscriptions:**
+- `taskAdded` / `taskUpdated` - Task changes
+- `browserUpdated` - Browser screenshots
+- `terminalLogsAdded` - Terminal output
+
+## Styling
+
+Uses vanilla-extract for type-safe CSS:
+
+```typescript
+// Button.css.ts
+import { style } from '@vanilla-extract/css';
+
+export const button = style({
+  padding: '8px 16px',
+  borderRadius: '4px',
+});
+```
+
+Theme variables are defined in `src/styles/theme.css.ts`.
+
+## Path Aliases
+
+Configured in `vite.config.ts`:
+
+- `@/` → `./src`
+- `@/generated` → `./generated`
+
+Example:
+```typescript
+import { useFlowData } from '@/hooks';
+import { FlowQuery } from '@/generated/graphql';
+```
