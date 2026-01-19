@@ -16,7 +16,7 @@ RUN yarn install --frozen-lockfile --production=false
 RUN yarn build
 
 # STEP 2: Build the backend
-FROM golang:1.24-alpine AS be-build
+FROM golang:1.25-alpine AS be-build
 ENV CGO_ENABLED=1
 RUN apk add --no-cache gcc musl-dev
 
