@@ -1,5 +1,5 @@
 # STEP 1: Build the frontend
-FROM node:22-slim AS fe-build
+FROM node:25-slim AS fe-build
 
 ENV NODE_ENV=production
 ENV VITE_API_URL=localhost:3000
