@@ -29,7 +29,7 @@ RUN go mod download
 RUN go build -ldflags='-extldflags "-static"' -o /app
 
 # STEP 3: Build the final image
-FROM alpine:3.20
+FROM alpine:3.23
 
 COPY --from=be-build /app /app
 COPY --from=fe-build /frontend/dist /fe
