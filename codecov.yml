@@ -1,0 +1,80 @@
+# Codecov configuration
+# https://docs.codecov.com/docs/codecovyml-reference
+
+coverage:
+  precision: 2
+  round: down
+  range: "60...90"
+
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 5%
+        if_ci_failed: error
+      backend:
+        paths:
+          - "backend/"
+        target: 60%
+        threshold: 5%
+      frontend:
+        paths:
+          - "frontend/src/"
+        target: 50%
+        threshold: 5%
+
+    patch:
+      default:
+        target: 70%
+        threshold: 10%
+        if_ci_failed: error
+
+parsers:
+  gcov:
+    branch_detection:
+      conditional: yes
+      loop: yes
+      method: no
+      macro: no
+
+comment:
+  layout: "reach,diff,flags,files"
+  behavior: default
+  require_changes: true
+  require_base: false
+  require_head: true
+
+flags:
+  backend:
+    paths:
+      - backend/
+    carryforward: true
+  frontend:
+    paths:
+      - frontend/src/
+    carryforward: true
+
+ignore:
+  # Generated files
+  - "backend/graph/generated.go"
+  - "backend/graph/model/models_gen.go"
+  - "backend/database/*.sql.go"
+  - "frontend/generated/**"
+  # Test files
+  - "**/*_test.go"
+  - "**/*.test.ts"
+  - "**/*.test.tsx"
+  - "**/*.spec.ts"
+  - "**/*.spec.tsx"
+  - "frontend/src/test/**"
+  # Config files
+  - "**/*.config.ts"
+  - "**/*.config.js"
+  # Assets
+  - "backend/assets/**"
+  - "frontend/src/assets/**"
+  # Migrations
+  - "backend/migrations/**"
+
+github_checks:
+  annotations: true
