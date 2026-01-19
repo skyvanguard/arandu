@@ -3,6 +3,7 @@
   <p>Agente de IA completamente autónomo que puede realizar tareas y proyectos complejos<br/>usando terminal, navegador y editor.</p>
 
   [![CI](https://github.com/skyvanguard/arandu/actions/workflows/ci.yml/badge.svg)](https://github.com/skyvanguard/arandu/actions/workflows/ci.yml)
+  [![codecov](https://codecov.io/gh/skyvanguard/arandu/branch/master/graph/badge.svg)](https://codecov.io/gh/skyvanguard/arandu)
   [![Release](https://img.shields.io/github/v/release/skyvanguard/arandu)](https://github.com/skyvanguard/arandu/releases)
   [![License](https://img.shields.io/github/license/skyvanguard/arandu)](LICENSE)
   [![Go](https://img.shields.io/badge/Go-1.22+-00ADD8?logo=go&logoColor=white)](https://go.dev)
