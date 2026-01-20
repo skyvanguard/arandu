@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/docker/docker/api/types/container"
 	"github.com/arandu-ai/arandu/config"
 	"github.com/arandu-ai/arandu/database"
 	gmodel "github.com/arandu-ai/arandu/graph/model"
@@ -15,6 +14,7 @@ import (
 	"github.com/arandu-ai/arandu/models"
 	"github.com/arandu-ai/arandu/providers"
 	"github.com/arandu-ai/arandu/security"
+	"github.com/docker/docker/api/types/container"
 )
 
 // SummaryWordCount es el número de palabras para el resumen del flujo

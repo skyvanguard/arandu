@@ -13,37 +13,37 @@ import (
 // AllowedDockerImages is a whitelist of allowed Docker images
 // Add more images as needed
 var AllowedDockerImages = map[string]bool{
-	"node:latest":      true,
-	"node:20":          true,
-	"node:18":          true,
-	"python:latest":    true,
-	"python:3.12":      true,
-	"python:3.11":      true,
-	"python:3.10":      true,
-	"golang:latest":    true,
-	"golang:1.22":      true,
-	"golang:1.21":      true,
-	"rust:latest":      true,
-	"ruby:latest":      true,
-	"php:latest":       true,
-	"openjdk:latest":   true,
-	"ubuntu:latest":    true,
-	"debian:latest":    true,
-	"alpine:latest":    true,
+	"node:latest":    true,
+	"node:20":        true,
+	"node:18":        true,
+	"python:latest":  true,
+	"python:3.12":    true,
+	"python:3.11":    true,
+	"python:3.10":    true,
+	"golang:latest":  true,
+	"golang:1.22":    true,
+	"golang:1.21":    true,
+	"rust:latest":    true,
+	"ruby:latest":    true,
+	"php:latest":     true,
+	"openjdk:latest": true,
+	"ubuntu:latest":  true,
+	"debian:latest":  true,
+	"alpine:latest":  true,
 }
 
 // BlockedURLPatterns contains patterns that should not be accessed
 var BlockedURLPatterns = []*regexp.Regexp{
-	regexp.MustCompile(`(?i)^file://`),                    // Local file access
-	regexp.MustCompile(`(?i)^(http://)?localhost`),        // Localhost
-	regexp.MustCompile(`(?i)^(http://)?127\.0\.0\.1`),     // Loopback
-	regexp.MustCompile(`(?i)^(http://)?0\.0\.0\.0`),       // All interfaces
-	regexp.MustCompile(`(?i)^(http://)?10\.\d+\.\d+\.\d+`),   // Private network 10.x
+	regexp.MustCompile(`(?i)^file://`),                                     // Local file access
+	regexp.MustCompile(`(?i)^(http://)?localhost`),                         // Localhost
+	regexp.MustCompile(`(?i)^(http://)?127\.0\.0\.1`),                      // Loopback
+	regexp.MustCompile(`(?i)^(http://)?0\.0\.0\.0`),                        // All interfaces
+	regexp.MustCompile(`(?i)^(http://)?10\.\d+\.\d+\.\d+`),                 // Private network 10.x
 	regexp.MustCompile(`(?i)^(http://)?172\.(1[6-9]|2\d|3[01])\.\d+\.\d+`), // Private 172.16-31.x
-	regexp.MustCompile(`(?i)^(http://)?192\.168\.\d+\.\d+`),  // Private 192.168.x
-	regexp.MustCompile(`(?i)^(http://)?169\.254\.\d+\.\d+`),  // Link-local
-	regexp.MustCompile(`(?i)metadata\.google\.internal`),     // GCP metadata
-	regexp.MustCompile(`(?i)169\.254\.169\.254`),             // AWS/Azure metadata
+	regexp.MustCompile(`(?i)^(http://)?192\.168\.\d+\.\d+`),                // Private 192.168.x
+	regexp.MustCompile(`(?i)^(http://)?169\.254\.\d+\.\d+`),                // Link-local
+	regexp.MustCompile(`(?i)metadata\.google\.internal`),                   // GCP metadata
+	regexp.MustCompile(`(?i)169\.254\.169\.254`),                           // AWS/Azure metadata
 }
 
 // ValidatePath checks if a path is safe (no path traversal)

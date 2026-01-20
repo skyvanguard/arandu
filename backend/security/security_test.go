@@ -211,9 +211,9 @@ func TestValidateDockerImage(t *testing.T) {
 
 func TestSanitizeLogMessage(t *testing.T) {
 	tests := []struct {
-		name     string
-		message  string
-		contains string
+		name        string
+		message     string
+		contains    string
 		notContains string
 	}{
 		{

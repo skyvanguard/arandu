@@ -134,9 +134,9 @@ func IsUnavailable(err error) bool {
 
 // ProviderError represents an error from an LLM provider
 type ProviderError struct {
-	Provider string
-	Op       string
-	Err      error
+	Provider  string
+	Op        string
+	Err       error
 	Retryable bool
 }
 

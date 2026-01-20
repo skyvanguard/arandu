@@ -9,12 +9,12 @@ import (
 	"io"
 	"path/filepath"
 
-	"github.com/docker/docker/api/types/container"
 	"github.com/arandu-ai/arandu/database"
 	gmodel "github.com/arandu-ai/arandu/graph/model"
 	"github.com/arandu-ai/arandu/graph/subscriptions"
 	"github.com/arandu-ai/arandu/logging"
 	"github.com/arandu-ai/arandu/websocket"
+	"github.com/docker/docker/api/types/container"
 )
 
 // LogType representa el tipo de log de terminal

@@ -6,16 +6,16 @@ import (
 	"os"
 	"time"
 
-	"github.com/docker/docker/api/types/container"
-	"github.com/docker/go-connections/nat"
-	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/launcher"
-	"github.com/go-rod/rod/lib/proto"
 	"github.com/arandu-ai/arandu/assets"
 	"github.com/arandu-ai/arandu/config"
 	"github.com/arandu-ai/arandu/database"
 	"github.com/arandu-ai/arandu/logging"
 	"github.com/arandu-ai/arandu/templates"
+	"github.com/docker/docker/api/types/container"
+	"github.com/docker/go-connections/nat"
+	"github.com/go-rod/rod"
+	"github.com/go-rod/rod/lib/launcher"
+	"github.com/go-rod/rod/lib/proto"
 )
 
 const port = "9222"

@@ -37,7 +37,7 @@ type TaskHandler struct {
 // taskHandlers mapea tipos de tarea a sus handlers
 var taskHandlers = map[string]TaskHandler{
 	"input": {
-		Process:       func(p providers.Provider, db *database.Queries, t database.Task) error { return processInputTask(p, db, t) },
+		Process:       processInputTask,
 		NeedsNextTask: true,
 	},
 	"ask": {
@@ -45,7 +45,9 @@ var taskHandlers = map[string]TaskHandler{
 		NeedsNextTask: false,
 	},
 	"terminal": {
-		Process:       func(_ providers.Provider, db *database.Queries, t database.Task) error { return processTerminalTask(db, t) },
+		Process: func(_ providers.Provider, db *database.Queries, t database.Task) error {
+			return processTerminalTask(db, t)
+		},
 		NeedsNextTask: true,
 	},
 	"code": {
@@ -57,7 +59,9 @@ var taskHandlers = map[string]TaskHandler{
 		NeedsNextTask: false,
 	},
 	"browser": {
-		Process:       func(_ providers.Provider, db *database.Queries, t database.Task) error { return processBrowserTask(db, t) },
+		Process: func(_ providers.Provider, db *database.Queries, t database.Task) error {
+			return processBrowserTask(db, t)
+		},
 		NeedsNextTask: true,
 	},
 }

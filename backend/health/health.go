@@ -38,16 +38,16 @@ type HealthResponse struct {
 
 // Metrics contains basic application metrics
 type Metrics struct {
-	Uptime          time.Duration `json:"uptime"`
-	UptimeSeconds   float64       `json:"uptime_seconds"`
-	RequestsTotal   int64         `json:"requests_total"`
-	RequestsActive  int64         `json:"requests_active"`
-	ErrorsTotal     int64         `json:"errors_total"`
-	GoRoutines      int           `json:"goroutines"`
-	MemoryAllocMB   float64       `json:"memory_alloc_mb"`
-	MemorySysMB     float64       `json:"memory_sys_mb"`
-	GCPauseMs       float64       `json:"gc_pause_ms"`
-	NumCPU          int           `json:"num_cpu"`
+	Uptime         time.Duration `json:"uptime"`
+	UptimeSeconds  float64       `json:"uptime_seconds"`
+	RequestsTotal  int64         `json:"requests_total"`
+	RequestsActive int64         `json:"requests_active"`
+	ErrorsTotal    int64         `json:"errors_total"`
+	GoRoutines     int           `json:"goroutines"`
+	MemoryAllocMB  float64       `json:"memory_alloc_mb"`
+	MemorySysMB    float64       `json:"memory_sys_mb"`
+	GCPauseMs      float64       `json:"gc_pause_ms"`
+	NumCPU         int           `json:"num_cpu"`
 }
 
 // Checker provides health check functionality

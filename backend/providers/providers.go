@@ -353,10 +353,10 @@ func truncateTaskResults(tasks []database.Task, maxLength int) []database.Task {
 
 // PromptConfig contains options for preparing a prompt
 type PromptConfig struct {
-	DockerImage       string
-	Tasks             []database.Task
-	UseToolCalls      bool
-	MaxPromptLength   int
+	DockerImage     string
+	Tasks           []database.Task
+	UseToolCalls    bool
+	MaxPromptLength int
 }
 
 // PreparedPrompt contains the rendered prompt and messages ready for the LLM

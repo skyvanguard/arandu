@@ -8,14 +8,14 @@ import (
 	"sync"
 	"time"
 
+	"github.com/arandu-ai/arandu/database"
+	"github.com/arandu-ai/arandu/logging"
+	"github.com/arandu-ai/arandu/models"
 	"github.com/containerd/errdefs"
 	"github.com/docker/docker/api/types/container"
 	"github.com/docker/docker/api/types/filters"
 	"github.com/docker/docker/api/types/image"
 	"github.com/docker/docker/client"
-	"github.com/arandu-ai/arandu/database"
-	"github.com/arandu-ai/arandu/logging"
-	"github.com/arandu-ai/arandu/models"
 )
 
 var (

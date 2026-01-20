@@ -7,10 +7,10 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket"
 	"github.com/arandu-ai/arandu/config"
 	"github.com/arandu-ai/arandu/logging"
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
 )
 
 // ConnectionManager maneja las conexiones WebSocket de forma thread-safe

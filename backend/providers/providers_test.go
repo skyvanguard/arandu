@@ -167,33 +167,33 @@ func TestProviderFactory(t *testing.T) {
 
 func TestTextToTask(t *testing.T) {
 	tests := []struct {
-		name    string
-		text    string
-		wantErr bool
+		name     string
+		text     string
+		wantErr  bool
 		wantType string
 	}{
 		{
-			name: "valid terminal task",
-			text: `{"tool": "terminal", "tool_input": {"input": "ls -la"}, "message": "Listing files"}`,
-			wantErr: false,
+			name:     "valid terminal task",
+			text:     `{"tool": "terminal", "tool_input": {"input": "ls -la"}, "message": "Listing files"}`,
+			wantErr:  false,
 			wantType: "terminal",
 		},
 		{
-			name: "valid browser task",
-			text: `{"tool": "browser", "tool_input": {"url": "https://google.com", "action": "read"}, "message": "Reading page"}`,
-			wantErr: false,
+			name:     "valid browser task",
+			text:     `{"tool": "browser", "tool_input": {"url": "https://google.com", "action": "read"}, "message": "Reading page"}`,
+			wantErr:  false,
 			wantType: "browser",
 		},
 		{
-			name: "valid ask task",
-			text: `{"tool": "ask", "tool_input": {}, "message": "What should I do?"}`,
-			wantErr: false,
+			name:     "valid ask task",
+			text:     `{"tool": "ask", "tool_input": {}, "message": "What should I do?"}`,
+			wantErr:  false,
 			wantType: "ask",
 		},
 		{
-			name: "valid done task",
-			text: `{"tool": "done", "tool_input": {}, "message": "Task completed"}`,
-			wantErr: false,
+			name:     "valid done task",
+			text:     `{"tool": "done", "tool_input": {}, "message": "Task completed"}`,
+			wantErr:  false,
 			wantType: "done",
 		},
 		{

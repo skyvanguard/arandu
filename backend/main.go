@@ -11,8 +11,6 @@ import (
 	"syscall"
 	"time"
 
-	_ "github.com/mattn/go-sqlite3"
-	"github.com/pressly/goose/v3"
 	"github.com/arandu-ai/arandu/assets"
 	"github.com/arandu-ai/arandu/config"
 	"github.com/arandu-ai/arandu/database"
@@ -20,6 +18,8 @@ import (
 	"github.com/arandu-ai/arandu/logging"
 	"github.com/arandu-ai/arandu/router"
 	"github.com/arandu-ai/arandu/websocket"
+	_ "github.com/mattn/go-sqlite3"
+	"github.com/pressly/goose/v3"
 )
 
 //go:embed templates/prompts/*.tmpl
@@ -127,7 +127,7 @@ func initDatabase() (*sql.DB, error) {
 
 	// Configurar connection pool
 	// SQLite es single-writer, pero múltiples lectores
-	db.SetMaxOpenConns(1)  // SQLite solo permite una conexión de escritura
+	db.SetMaxOpenConns(1) // SQLite solo permite una conexión de escritura
 	db.SetMaxIdleConns(1)
 	db.SetConnMaxLifetime(time.Hour)
 	db.SetConnMaxIdleTime(30 * time.Minute)

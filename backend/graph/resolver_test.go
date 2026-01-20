@@ -11,8 +11,9 @@ func TestResolverNotNil(t *testing.T) {
 		Db: nil,
 	}
 
-	if resolver == nil {
-		t.Error("Resolver should not be nil")
+	// Verify the resolver was created with expected field values
+	if resolver.Db != nil {
+		t.Error("Resolver.Db should be nil as initialized")
 	}
 }
 

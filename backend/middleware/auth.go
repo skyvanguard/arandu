@@ -4,8 +4,8 @@ import (
 	"crypto/subtle"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
 	"github.com/arandu-ai/arandu/config"
+	"github.com/gin-gonic/gin"
 )
 
 const (

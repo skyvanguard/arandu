@@ -5,8 +5,8 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gin-gonic/gin"
 	"github.com/arandu-ai/arandu/config"
+	"github.com/gin-gonic/gin"
 )
 
 func init() {
