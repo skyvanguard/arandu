@@ -26,11 +26,11 @@ describe("Button", () => {
     expect(screen.getByRole("button")).toBeDisabled();
   });
 
-  it("applies variant classes", () => {
-    const { rerender } = render(<Button variant="primary">Primary</Button>);
+  it("applies hierarchy classes", () => {
+    const { rerender } = render(<Button hierarchy="primary">Primary</Button>);
     expect(screen.getByRole("button")).toBeInTheDocument();
 
-    rerender(<Button variant="secondary">Secondary</Button>);
+    rerender(<Button hierarchy="secondary">Secondary</Button>);
     expect(screen.getByRole("button")).toBeInTheDocument();
   });
 });
