@@ -3,8 +3,6 @@ package graph
 import (
 	"context"
 	"testing"
-
-	"github.com/arandu-ai/arandu/database"
 )
 
 func TestResolverNotNil(t *testing.T) {
@@ -101,13 +99,4 @@ func TestTaskCreationIntegration(t *testing.T) {
 	// 1. Create a flow
 	// 2. Create a task in that flow
 	// 3. Query the flow and verify task is included
-}
-
-// Helper function to create test database (for future use)
-func setupTestDB(t *testing.T) *database.Queries {
-	t.Helper()
-	// Would create an in-memory SQLite database
-	// Run migrations
-	// Return queries object
-	return nil
 }

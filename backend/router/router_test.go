@@ -31,7 +31,7 @@ func TestMain(m *testing.M) {
 }
 
 func TestRouterInitialization(t *testing.T) {
-	var db *database.Queries = nil
+	var db *database.Queries
 
 	r := New(db)
 
@@ -41,7 +41,7 @@ func TestRouterInitialization(t *testing.T) {
 }
 
 func TestPlaygroundEndpoint(t *testing.T) {
-	var db *database.Queries = nil
+	var db *database.Queries
 
 	r := New(db)
 
@@ -59,7 +59,7 @@ func TestPlaygroundEndpoint(t *testing.T) {
 }
 
 func TestGraphQLEndpointAcceptsPost(t *testing.T) {
-	var db *database.Queries = nil
+	var db *database.Queries
 
 	r := New(db)
 
@@ -79,7 +79,7 @@ func TestGraphQLEndpointAcceptsPost(t *testing.T) {
 }
 
 func TestCORSPreflight(t *testing.T) {
-	var db *database.Queries = nil
+	var db *database.Queries
 
 	r := New(db)
 
@@ -107,7 +107,7 @@ func TestCORSPreflight(t *testing.T) {
 }
 
 func TestUnknownOriginBlocked(t *testing.T) {
-	var db *database.Queries = nil
+	var db *database.Queries
 
 	r := New(db)
 
